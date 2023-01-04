@@ -21,7 +21,6 @@ public class StudentController {
 	private StudentService studentService;
 
 	
-	// handler method to handle list students and return mode and view
 	@GetMapping("/students")
 	public String listStudents(Model model) {
 		model.addAttribute("students", studentService.getAllStudents());
@@ -55,10 +54,10 @@ public class StudentController {
 		
 		// get student from database by id
 		Student existingStudent = studentService.getStudentById(id);
-		existingStudent.setStudentid(id);
+		existingStudent.setId(id);
 		existingStudent.setFirstName(student.getFirstName());
 		existingStudent.setLastName(student.getLastName());
-		existingStudent.setEmailId(student.getEmailId());
+		existingStudent.setEmail(student.getEmail());
 		
 		// save updated student object
 		studentService.updateStudent(existingStudent);
